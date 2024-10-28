@@ -1,0 +1,5 @@
+/give @s minecraft:chest
+/gamerule keepInventory true
+/tp KSmc_brigade mc
+/tp KSmc_brigade Dev
+/tp KSmc_brigade

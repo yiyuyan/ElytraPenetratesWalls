@@ -1,0 +1,188 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 2024-10-27 20:29:25
+Description: Ticking entity
+
+java.lang.IllegalStateException: Cannot get config value before config is loaded.
+	at MC-BOOTSTRAP/com.google.common@32.1.2-jre/com.google.common.base.Preconditions.checkState(Preconditions.java:512) ~[guava-32.1.2-jre.jar%23111!/:?] {}
+	at TRANSFORMER/neoforge@21.0.162/net.neoforged.neoforge.common.ModConfigSpec$ConfigValue.getRaw(ModConfigSpec.java:1228) ~[neoforge-21.0.162.jar%23190!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/neoforge@21.0.162/net.neoforged.neoforge.common.ModConfigSpec$ConfigValue.get(ModConfigSpec.java:1215) ~[neoforge-21.0.162.jar%23190!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.block.state.BlockBehaviour.handler$zzb000$epw$shape(BlockBehaviour.java:523) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epw.mixins.json:BlockShapeMixin from mod epw,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.block.state.BlockBehaviour.getShape(BlockBehaviour.java:318) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epw.mixins.json:BlockShapeMixin from mod epw,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getShape(BlockBehaviour.java:648) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,re:classloading,pl:mixin:APP:epw.mixins.json:BlockStateBaseMixin from mod epw,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getShape(BlockBehaviour.java:644) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,re:classloading,pl:mixin:APP:epw.mixins.json:BlockStateBaseMixin from mod epw,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.block.state.BlockBehaviour.getCollisionShape(BlockBehaviour.java:322) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epw.mixins.json:BlockShapeMixin from mod epw,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getCollisionShape(BlockBehaviour.java:656) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,re:classloading,pl:mixin:APP:epw.mixins.json:BlockStateBaseMixin from mod epw,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.ClipContext$Block.get(ClipContext.java:65) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.ClipContext.getBlockShape(ClipContext.java:44) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.BlockGetter.lambda$clip$2(BlockGetter.java:71) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.BlockGetter.traverseBlocks(BlockGetter.java:162) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.BlockGetter.clip(BlockGetter.java:66) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.entity.projectile.ProjectileUtil.getHitResult(ProjectileUtil.java:49) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.entity.projectile.ProjectileUtil.getHitResultOnMoveVector(ProjectileUtil.java:28) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.entity.projectile.FireworkRocketEntity.tick(FireworkRocketEntity.java:150) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:774) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.Level.guardEntityTick(Level.java:570) ~[neoforge-21.0.162.jar%23189!/:?] {re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.level.ServerLevel.lambda$tick$2(ServerLevel.java:420) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:400) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1037) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.dedicated.DedicatedServer.tickChildren(DedicatedServer.java:317) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:917) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:707) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at MC-BOOTSTRAP/com.google.common@32.1.2-jre/com.google.common.base.Preconditions.checkState(Preconditions.java:512) ~[guava-32.1.2-jre.jar%23111!/:?] {}
+	at TRANSFORMER/neoforge@21.0.162/net.neoforged.neoforge.common.ModConfigSpec$ConfigValue.getRaw(ModConfigSpec.java:1228) ~[neoforge-21.0.162.jar%23190!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/neoforge@21.0.162/net.neoforged.neoforge.common.ModConfigSpec$ConfigValue.get(ModConfigSpec.java:1215) ~[neoforge-21.0.162.jar%23190!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.block.state.BlockBehaviour.handler$zzb000$epw$shape(BlockBehaviour.java:523) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epw.mixins.json:BlockShapeMixin from mod epw,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.block.state.BlockBehaviour.getShape(BlockBehaviour.java:318) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epw.mixins.json:BlockShapeMixin from mod epw,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getShape(BlockBehaviour.java:648) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,re:classloading,pl:mixin:APP:epw.mixins.json:BlockStateBaseMixin from mod epw,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getShape(BlockBehaviour.java:644) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,re:classloading,pl:mixin:APP:epw.mixins.json:BlockStateBaseMixin from mod epw,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.block.state.BlockBehaviour.getCollisionShape(BlockBehaviour.java:322) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epw.mixins.json:BlockShapeMixin from mod epw,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.getCollisionShape(BlockBehaviour.java:656) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,re:classloading,pl:mixin:APP:epw.mixins.json:BlockStateBaseMixin from mod epw,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.ClipContext$Block.get(ClipContext.java:65) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.ClipContext.getBlockShape(ClipContext.java:44) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.BlockGetter.lambda$clip$2(BlockGetter.java:71) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.BlockGetter.traverseBlocks(BlockGetter.java:162) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.BlockGetter.clip(BlockGetter.java:66) ~[neoforge-21.0.162.jar%23189!/:?] {re:mixin,re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.entity.projectile.ProjectileUtil.getHitResult(ProjectileUtil.java:49) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.entity.projectile.ProjectileUtil.getHitResultOnMoveVector(ProjectileUtil.java:28) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.entity.projectile.FireworkRocketEntity.tick(FireworkRocketEntity.java:150) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:774) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.Level.guardEntityTick(Level.java:570) ~[neoforge-21.0.162.jar%23189!/:?] {re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.level.ServerLevel.lambda$tick$2(ServerLevel.java:420) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+-- Entity being ticked --
+Details:
+	Entity Type: minecraft:firework_rocket (net.minecraft.world.entity.projectile.FireworkRocketEntity)
+	Entity ID: 191
+	Entity Name: Firework Rocket
+	Entity's Exact location: -113.21, 65.76, 87.44
+	Entity's Block location: World: (-114,65,87), Section: (at 14,1,7 in -8,4,5; chunk contains blocks -128,-64,80 to -113,319,95), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,-64,0 to -1,319,511)
+	Entity's Momentum: 1.32, -0.78, 0.76
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.Level.guardEntityTick(Level.java:570) ~[neoforge-21.0.162.jar%23189!/:?] {re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.level.ServerLevel.lambda$tick$2(ServerLevel.java:420) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:400) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1037) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.dedicated.DedicatedServer.tickChildren(DedicatedServer.java:317) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:917) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:707) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+
+
+-- Affected level --
+Details:
+	All players: 1 total; [ServerPlayer['Dev'/23, l='ServerLevel[world]', x=-113.04, y=65.76, z=86.97]]
+	Chunk stats: 1563
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (32,63,-16), Section: (at 0,15,0 in 2,3,-1; chunk contains blocks 32,-64,-16 to 47,319,-1), Region: (0,-1; contains chunks 0,-32 to 31,-1, blocks 0,-64,-512 to 511,319,-1)
+	Level time: 42228 game time, 42228 day time
+	Level name: world
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Commands: false
+	Level weather: Rain time: 123957 (now: false), thunder time: 133234 (now: false)
+	Known server brands: neoforge
+	Removed feature flags: 
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+	Loaded entity count: 147
+Stacktrace:
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.level.ServerLevel.fillReportDetails(ServerLevel.java:1718) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1040) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.dedicated.DedicatedServer.tickChildren(DedicatedServer.java:317) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:917) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:707) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[neoforge-21.0.162.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21
+	Minecraft Version ID: 1.21
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 21.0.2, Oracle Corporation
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 325214064 bytes (310 MiB) / 616562688 bytes (588 MiB) up to 4261412864 bytes (4064 MiB)
+	CPUs: 8
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz
+	Identifier: Intel64 Family 6 Model 158 Stepping 9
+	Microarchitecture: Kaby Lake
+	Frequency (GHz): 3.60
+	Number of physical packages: 1
+	Number of physical CPUs: 4
+	Number of logical CPUs: 8
+	Graphics card #0 name: NVIDIA GeForce GT 640
+	Graphics card #0 vendor: NVIDIA
+	Graphics card #0 VRAM (MiB): 1024.00
+	Graphics card #0 deviceId: VideoController1
+	Graphics card #0 versionInfo: 30.0.14.7141
+	Graphics card #1 name: Intel(R) HD Graphics 630
+	Graphics card #1 vendor: Intel Corporation
+	Graphics card #1 VRAM (MiB): 1024.00
+	Graphics card #1 deviceId: VideoController2
+	Graphics card #1 versionInfo: 31.0.101.2121
+	Memory slot #0 capacity (MiB): 4096.00
+	Memory slot #0 clockSpeed (GHz): 2.40
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MiB): 4096.00
+	Memory slot #1 clockSpeed (GHz): 2.40
+	Memory slot #1 type: DDR4
+	Memory slot #2 capacity (MiB): 8192.00
+	Memory slot #2 clockSpeed (GHz): 2.40
+	Memory slot #2 type: DDR4
+	Virtual memory max (MiB): 23332.50
+	Virtual memory used (MiB): 15036.22
+	Swap memory total (MiB): 7080.95
+	Swap memory used (MiB): 152.98
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 15267.80, total: 113829.86
+	Space in storage for workdir (MiB): available: 108124.63, total: 238593.00
+	JVM Flags: 0 total; 
+	Server Running: true
+	Player Count: 1 / 20; [ServerPlayer['Dev'/23, l='ServerLevel[world]', x=-113.04, y=65.76, z=86.97]]
+	Active Data Packs: vanilla, mod_data, mod/epw, mod/neoforge
+	Available Data Packs: bundle, trade_rebalance, vanilla, mod/epw, mod/neoforge, mod_data
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	World Seed: 2787027300691071539
+	Is Modded: Definitely; Server brand changed to 'neoforge'
+	Type: Dedicated Server (map_server.txt)
+	ModLauncher: 11.0.4+main.d2e20e43
+	ModLauncher launch target: forgeserveruserdev
+	ModLauncher services: 
+		sponge-mixin-0.14.0+mixin.0.8.6.jar mixin PLUGINSERVICE 
+		loader-4.0.23.jar slf4jfixer PLUGINSERVICE 
+		loader-4.0.23.jar runtime_enum_extender PLUGINSERVICE 
+		at-modlauncher-10.0.1.jar accesstransformer PLUGINSERVICE 
+		loader-4.0.23.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-11.0.4.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-11.0.4.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		javafml@4.0
+		lowcodefml@4.0
+		minecraft@4.0
+	Mod List: 
+		neoforge-21.0.162.jar                             |Minecraft                     |minecraft                     |1.21                |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		main                                              |ElytraPenetratesWalls         |epw                           |1.0                 |Manifest: NOSIGNATURE
+		neoforge-21.0.162.jar                             |NeoForge                      |neoforge                      |21.0.162            |Manifest: NOSIGNATURE
+	Crash Report UUID: ac1a7489-059b-4494-97b3-ef69b3e02df2
+	FML: 4.0.23
+	NeoForge: 21.0.162

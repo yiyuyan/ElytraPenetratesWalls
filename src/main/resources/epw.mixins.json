@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cn.ksmcbrigade.epw.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "epw.refmap.json",
+  "mixins": [
+    "BlockStateBaseMixin",
+    "BlockShapeMixin"
+  ],
+  "client": [
+    "KeyMappingRegister"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
